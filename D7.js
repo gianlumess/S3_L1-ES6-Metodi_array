@@ -40,11 +40,16 @@ console.log(
 );
 
 const arrayNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-console.log(arrayNumbers);
+/*console.log(arrayNumbers);
 const numPari = arrayNumbers.filter(function (number) {
   if (number % 2 === 0) return number;
 });
-console.log("filtrato l'array con soli numeri pari: ", numPari);
+console.log("filtrato l'array con soli numeri pari: ", numPari); */
+
+function numPari(array) {
+  return array.filter((element) => element % 2 === 0);
+}
+console.log("estraggo numeri pari: ", numPari([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
@@ -65,6 +70,10 @@ console.log(
   "---------------------------ESERCIZIO 5---------------------------"
 );
 
+function sum(array) {
+  return array.reduce((totale, valoreCorrente) => totale + valoreCorrente, 0);
+}
+console.log(sum(arrayNumbers));
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
@@ -72,12 +81,10 @@ console.log(
   "---------------------------ESERCIZIO 6---------------------------"
 );
 
-const incrementNumbers = arrayNumbers.map(function (number) {
-  let incremento = 0;
-  incremento += number;
-  return incremento;
-});
-console.log(incrementNumbers);
+function incrementArray(array, n) {
+  return array.map((number) => number + n);
+}
+console.log(incrementArray(arrayNumbers, 8));
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
@@ -223,27 +230,83 @@ const movies = [
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
+console.log(
+  "---------------------------ESERCIZIO 9---------------------------"
+);
+
+function filmVecchio() {}
 
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
+console.log(
+  "---------------------------ESERCIZIO 10---------------------------"
+);
 
+function numElementsArray(array) {
+  const lunghezzaArray = array.length;
+  return lunghezzaArray;
+}
+console.log("numero di film contenuti nell'array: ", numElementsArray(movies));
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
+console.log(
+  "---------------------------ESERCIZIO 11---------------------------"
+);
 
+function titoliFilm(array) {
+  return array.map((elemento) => elemento.Title);
+}
+console.log(titoliFilm(movies));
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
+console.log(
+  "---------------------------ESERCIZIO 12---------------------------"
+);
 
+function film2000(array) {
+  return array.filter((elemento) => elemento.Year >= 2000);
+}
+console.log("film usciti nel millennio corrente: ", film2000(movies));
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+console.log(
+  "---------------------------ESERCIZIO 13---------------------------"
+);
 
+function yearsFilmSum(array) {
+  return array.reduce(
+    (totale, valoreCorrente) => totale + parseInt(valoreCorrente.Year),
+    0
+  );
+}
+console.log(
+  "somma di tutti gli anni in cui sono stati prodotti i film: ",
+  yearsFilmSum(movies)
+);
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 
+console.log(
+  "---------------------------ESERCIZIO 14---------------------------"
+);
+
+function trovaFilm(array, id) {
+  return array.find((elemento) => elemento.imdbID === id);
+}
+console.log(trovaFilm(movies, "tt0167260"));
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+console.log(
+  "---------------------------ESERCIZIO 15---------------------------"
+);
+
+function trovaIndice(array, anno) {
+  return array.findIndex((elemento) => elemento.Year === anno);
+}
+console.log(trovaIndice(movies, "2012"));
