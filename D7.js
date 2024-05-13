@@ -35,28 +35,75 @@ randomElements();
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
+console.log(
+  "---------------------------ESERCIZIO 3---------------------------"
+);
 
+const arrayNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(arrayNumbers);
+const numPari = arrayNumbers.filter(function (number) {
+  if (number % 2 === 0) return number;
+});
+console.log("filtrato l'array con soli numeri pari: ", numPari);
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+console.log(
+  "---------------------------ESERCIZIO 4---------------------------"
+);
 
+console.log("sommare i numeri contenuti nell'array: ", arrayNumbers);
+let somma = 0;
+arrayNumbers.forEach(function (number) {
+  somma += number;
+});
+console.log("La somma è: ", somma);
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+console.log(
+  "---------------------------ESERCIZIO 5---------------------------"
+);
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
+console.log(
+  "---------------------------ESERCIZIO 6---------------------------"
+);
 
+const incrementNumbers = arrayNumbers.map(function (number) {
+  let incremento = 0;
+  incremento += number;
+  return incremento;
+});
+console.log(incrementNumbers);
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
-
+console.log(
+  "---------------------------ESERCIZIO 7---------------------------"
+);
+const strings = ["EPICODE", "is", "great"];
+const StringLenght = strings.map(function (elemento) {
+  return elemento.length;
+});
+console.log(StringLenght);
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+console.log(
+  "---------------------------ESERCIZIO 8---------------------------"
+);
 
+const dispari = [];
+for (let index = 0; index <= 99; index++) {
+  if (index % 2 !== 0) {
+    dispari.push(index);
+  }
+}
+console.log(dispari);
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
   {
